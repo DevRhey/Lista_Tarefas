@@ -1,0 +1,29 @@
+$(document).ready(function () {
+  $("#cadastrar").click(function () {
+    $("form").slideDown();
+  });
+
+  $("#cancelar").click(function () {
+    $("form").slideUp();
+  });
+
+  $("#btn1").click(function (e) {
+    e.preventDefault();
+    const addNovaTarefa = $("#tarefa").val();
+    const addItem = $("<li></li>");
+    $(`<p>${addNovaTarefa}</p>`).appendTo(addItem);
+    if (addNovaTarefa === "") {
+      alert("Digite uma tarefa!");
+    } else $(addItem).appendTo("ul");
+    $("#tarefa").val("");
+  });
+
+  $("#tarefa").click(function () {
+    $("#tarefa").css("text-decoration: line-through");
+  });
+
+  $("#btn2").click(function () {
+    $("#lista-tarefa").empty();
+    alert("Lista de tarefas apagada!");
+  });
+});
